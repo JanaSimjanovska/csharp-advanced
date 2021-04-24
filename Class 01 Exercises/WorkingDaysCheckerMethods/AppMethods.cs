@@ -57,8 +57,10 @@ namespace WorkingDaysCheckerMethods
 
                 Console.WriteLine("Thank you for using our app :) Go ahead and let someone else check some dates :)\n ");
                 Console.ResetColor();
+                PressAnyKey();
+
             }
-            
+
 
         }
 
