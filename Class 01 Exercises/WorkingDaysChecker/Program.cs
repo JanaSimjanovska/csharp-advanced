@@ -27,7 +27,7 @@ namespace WorkingDaysChecker
 
 
 
-            // Top si raboti, samo smisli dali sakas da ja izgasis skroz otkako kje mu gi izlistas site vneseni datumi na juzerot, ili pa neso kje stais press any key i kje pocne od novo. ISTO TAKA, ne e ic sredena, vidi dali tuk i tamu mozes da stavis nekoj konzol klir, samo vnimavaj da ne izmestis neso, poso toa ednas vekje se desi, i ako imas vreme stai nekoi boicki.
+            
 
 
             try
