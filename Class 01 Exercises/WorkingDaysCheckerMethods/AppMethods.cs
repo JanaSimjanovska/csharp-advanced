@@ -31,7 +31,7 @@ namespace WorkingDaysCheckerMethods
                         else
                         {
                             Console.ForegroundColor = ConsoleColor.Magenta;
-                            Console.Write(" Today is a holiday, sooo... That means NO WORK! :)\n");
+                            Console.Write(" This date is a holiday, sooo... That means NO WORK! :)\n");
                             Console.ResetColor();
 
                         }
