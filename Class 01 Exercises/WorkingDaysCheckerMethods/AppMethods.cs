@@ -114,6 +114,7 @@ namespace WorkingDaysCheckerMethods
                     Console.WriteLine($"\n{ex.Message}");
                     Console.WriteLine("\nOoops! ");
                     Console.WriteLine("\nTry again.\n");
+                    PressAnyKey();
                     Console.ResetColor();
                 }
             }
