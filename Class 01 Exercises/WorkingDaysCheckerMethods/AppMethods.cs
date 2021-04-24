@@ -9,53 +9,57 @@ namespace WorkingDaysCheckerMethods
     {
         public static void CheckIfItsAWorkingDay(List<DateTime> enteredDates)
         {
-            Console.WriteLine("\nHere are the results for the days you entered:");
-
-            enteredDates.ForEach(x =>
+            if (enteredDates.Count == 0) return;
+            else
             {
-                Console.WriteLine("\n-----------------------------------------------------------------------------------------------------\n");
-                Console.Write(string.Format("The date you entered is {0:dd-MMMM-yyyy}, {0:dddd}.", x));
-                if ((x.Day == 1 && x.Month == 1) || (x.Day == 7 && x.Month == 1) || (x.Day == 20 && x.Month == 4) || (x.Day == 1 && x.Month == 15) || (x.Day == 25 && x.Month == 5) || (x.Day == 3 && x.Month == 8) || (x.Day == 18 && x.Month == 9) || (x.Day == 12 && x.Month == 10) || (x.Day == 23 && x.Month == 10) || (x.Day == 8 && x.Month == 12))
+                Console.WriteLine("\nHere are the results for the days you entered:");
+
+                enteredDates.ForEach(x =>
                 {
-                    if (x.DayOfWeek == DayOfWeek.Sunday || x.DayOfWeek == DayOfWeek.Saturday)
+                    Console.WriteLine("\n-----------------------------------------------------------------------------------------------------\n");
+                    Console.Write(string.Format("The date you entered is {0:dd-MMMM-yyyy}, {0:dddd}.", x));
+                    if ((x.Day == 1 && x.Month == 1) || (x.Day == 7 && x.Month == 1) || (x.Day == 20 && x.Month == 4) || (x.Day == 1 && x.Month == 15) || (x.Day == 25 && x.Month == 5) || (x.Day == 3 && x.Month == 8) || (x.Day == 18 && x.Month == 9) || (x.Day == 12 && x.Month == 10) || (x.Day == 23 && x.Month == 10) || (x.Day == 8 && x.Month == 12))
                     {
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
-                        Console.WriteLine(" This date falls on a holiday, but it's also the weekend, so no work, but also no long weekend this time. That kinda sucks :(\n");
+                        if (x.DayOfWeek == DayOfWeek.Sunday || x.DayOfWeek == DayOfWeek.Saturday)
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine(" This date falls on a holiday, but it's also the weekend, so no work, but also no long weekend this time. That kinda sucks :(\n");
+                            Console.ResetColor();
+
+                        }
+
+                        else
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.Write(" Today is a holiday, sooo... That means NO WORK! :)\n");
+                            Console.ResetColor();
+
+                        }
+                    }
+                    else if (x.DayOfWeek == DayOfWeek.Sunday || x.DayOfWeek == DayOfWeek.Saturday)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.Write(" YAY, IT'S THE WEEKEND! That means NO WORK! :)\n");
                         Console.ResetColor();
 
                     }
 
                     else
                     {
-                        Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.Write(" Today is a holiday, sooo... That means NO WORK! :)\n");
+                        Console.ForegroundColor = ConsoleColor.DarkCyan;
+                        Console.Write(" Rise and shine :) This is a working day :)\n");
                         Console.ResetColor();
-
                     }
-                }
-                else if (x.DayOfWeek == DayOfWeek.Sunday || x.DayOfWeek == DayOfWeek.Saturday)
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.Write(" YAY, IT'S THE WEEKEND! That means NO WORK! :)\n");
-                    Console.ResetColor();
+                });
+                Console.WriteLine("\n-----------------------------------------------------------------------------------------------------\n");
 
-                }
+                Console.ForegroundColor = ConsoleColor.Green;
 
-                else
-                {
-                    Console.ForegroundColor = ConsoleColor.DarkCyan;
-                    Console.Write(" Rise and shine :) This is a working day :)\n");
-                    Console.ResetColor();
-                }
-            });
-            Console.WriteLine("\n-----------------------------------------------------------------------------------------------------\n");
+                Console.WriteLine("Thank you for using our app :) Go ahead and let someone else check some dates :)\n ");
+                Console.ResetColor();
+            }
+            
 
-            Console.ForegroundColor = ConsoleColor.Green;
-
-            Console.WriteLine("Thank you for using our app :) Go ahead and let someone else check some dates :)\n ");
-            Console.ResetColor();
-
-            PressAnyKey();
         }
 
         #region Date Validator
@@ -75,6 +79,8 @@ namespace WorkingDaysCheckerMethods
                     if (dayOfDate < 1 || dayOfDate > 31) // ovie uslovi kako sto primetiv mi se malku vishok, zashto so samiot catch si fakja exception ako ne e validen datumot, duri i pravi edna super plus proverka kako onaa zadacana od nekoj bonus so go imavme so proverka na datumi (na primer i da vnese juzerot dobar broj za den, ko na pr 31, ama za mesec vnese na primer 2, puka exception i toa bas so toj tekst, deka ne postoi datumot, i jas plus si dodadov moj tekst, da e po user friendly), ama jas pak gi staviv ovie, za da ne vnesuva juzerot sve, pa otposle da se proveruva, tuku za odma stom ja utne da mu se prikaze error i precizna poraka sto tocno utnal, pa ako sepak vnese datum kako 31 fevruari, kje si go ishendla catch-ot toa.
                     {
                         Console.WriteLine("Wrong input! The value for the day input must be between 1 and 31.");
+                        PressAnyKey();
+
                         break;
                     }
 
@@ -84,6 +90,8 @@ namespace WorkingDaysCheckerMethods
                     if (monthOfDate < 1 || monthOfDate > 12)
                     {
                         Console.WriteLine("Wrong input! The value for the month input must be between 1 and 12.");
+                        PressAnyKey();
+
                         break;
                     }
 
@@ -94,6 +102,8 @@ namespace WorkingDaysCheckerMethods
                     {
                         Console.WriteLine("The year can't be before 1900 and after 3000.\n" +
                             "Please try again.");
+                        PressAnyKey();
+
                         break;
                     }
 
