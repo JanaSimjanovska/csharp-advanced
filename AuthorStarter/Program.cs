@@ -38,15 +38,7 @@ namespace AuthorStarter
                                 BookCount = x.Books.Count, 
                                 PercentageNoms = x.Books.Where(x => x.Nominations > 0).Count() * 100 / x.Books.Count
                             });
-            
-            // var bookTitleIdWinsAndNoms = allBooks
-            //                 .Select(x => new{
-            //                     BookTitle = x.Title,
-            //                     BookId = x.ID,
-            //                     BookWins = x.Wins,
-            //                     BookNoms = x.Nominations
-            //                 });
-
+       
             #endregion
 
 
