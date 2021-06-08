@@ -6,7 +6,7 @@ namespace TimeTracking.Domain.Core.Enums
 {
     public enum TypeOfExercise
     {
-        General,
+        General = 1,
         Running,
         Sport
     }
